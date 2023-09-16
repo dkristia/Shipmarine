@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=3 uid="uid://b5qk8b34to1ox"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_l5ddx"]
+line_spacing = 10.0
+font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_gh6ip"]
+font_size = 100
+
+[sub_resource type="LabelSettings" id="LabelSettings_wgm0u"]
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_bh7ps"]
+font_size = 100
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Depth" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Depth"
+label_settings = SubResource("LabelSettings_l5ddx")
+
+[node name="DepthMeter" type="Label" parent="MarginContainer/HBoxContainer/Depth"]
+layout_mode = 0
+offset_top = 41.0
+offset_right = 228.0
+offset_bottom = 181.0
+text = "6969
+"
+label_settings = SubResource("LabelSettings_gh6ip")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Score" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Score"
+label_settings = SubResource("LabelSettings_wgm0u")
+horizontal_alignment = 1
+
+[node name="Points" type="Label" parent="MarginContainer/VBoxContainer/Score"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -114.0
+offset_top = 19.0
+offset_right = 114.0
+offset_bottom = 159.0
+grow_horizontal = 2
+text = "6969
+"
+label_settings = SubResource("LabelSettings_bh7ps")
+horizontal_alignment = 1

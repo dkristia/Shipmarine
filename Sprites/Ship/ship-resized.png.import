@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b48rl5tm0cd64"
-path="res://.godot/imported/white-square.png-82d31e05cf423da485a7a9c0bb191749.ctex"
+uid="uid://cybc64iqvlnr6"
+path="res://.godot/imported/ship-resized.png-08549eb48594a0c2a5a3eaa33283d928.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://white-square.png"
-dest_files=["res://.godot/imported/white-square.png-82d31e05cf423da485a7a9c0bb191749.ctex"]
+source_file="res://Sprites/Ship/ship-resized.png"
+dest_files=["res://.godot/imported/ship-resized.png-08549eb48594a0c2a5a3eaa33283d928.ctex"]
 
 [params]
 

@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://de0l0mes5wf5y"]
+
+[ext_resource type="Script" path="res://Scenes/Game/game.gd" id="1_jqw3p"]
+[ext_resource type="PackedScene" uid="uid://d3yqpj1afsgti" path="res://Objects/Ship/ship.tscn" id="1_prw3a"]
+[ext_resource type="PackedScene" uid="uid://br8g4kuob6xpt" path="res://Objects/Water/water_area_2d.tscn" id="2_ird0y"]
+[ext_resource type="PackedScene" uid="uid://b5qk8b34to1ox" path="res://GUI.tscn" id="3_op2in"]
+[ext_resource type="PackedScene" uid="uid://c5bwl5mym3wcv" path="res://Objects/Enemies/BigShip/bigship.tscn" id="5_4x0g6"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_jqw3p")
+
+[node name="WaterArea2D" parent="." instance=ExtResource("2_ird0y")]
+position = Vector2(0, 2225.52)
+scale = Vector2(153.817, 203.754)
+
+[node name="CanvasLayer" parent="." instance=ExtResource("3_op2in")]
+
+[node name="Bigship" parent="." instance=ExtResource("5_4x0g6")]
+position = Vector2(613.945, -71.5924)
+
+[node name="Ship" parent="." instance=ExtResource("1_prw3a")]
+position = Vector2(0, -6)
+
+[connection signal="body_entered" from="WaterArea2D" to="Ship" method="_on_water_area_2d_body_entered"]
+[connection signal="body_exited" from="WaterArea2D" to="Ship" method="_on_water_area_2d_body_exited"]

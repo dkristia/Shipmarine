@@ -1,0 +1,49 @@
+[gd_scene load_steps=2 format=3 uid="uid://br8g4kuob6xpt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xpga6"]
+size = Vector2(20, 152.874)
+
+[node name="WaterArea2D" type="Area2D" groups=["water_area"]]
+modulate = Color(0, 0.392157, 0.8, 1)
+position = Vector2(0, 843)
+scale = Vector2(58.2642, 77.1796)
+collision_layer = 2
+collision_mask = 3
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0.247059)
+z_index = -1
+custom_minimum_size = Vector2(100, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -49.5502
+offset_top = -11.0133
+offset_right = 95.4498
+offset_bottom = 389.987
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.710437, 1)
+color = Color(0, 0, 1, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0.219608)
+z_index = 1
+custom_minimum_size = Vector2(100, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -49.5502
+offset_top = -11.0133
+offset_right = 95.4498
+offset_bottom = 389.987
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.710437, 1)
+color = Color(0, 0, 1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 67.7122)
+scale = Vector2(0.983927, 1.02993)
+shape = SubResource("RectangleShape2D_xpga6")
+debug_color = Color(0, 0.6, 0.701961, 0)
