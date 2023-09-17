@@ -26,6 +26,9 @@ func _process(delta):
 	
 	_score.text = str(int(score)) + "m"
 	
+	if score >= 100:
+		get_tree().change_scene_to_file("res://Scenes/Victory/victory.tscn")
+	
 	if isDead:
 		speed = 0
 

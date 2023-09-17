@@ -9,9 +9,11 @@ font_size = 100
 
 [sub_resource type="LabelSettings" id="LabelSettings_wgm0u"]
 font_size = 40
+font_color = Color(0, 1, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_bh7ps"]
 font_size = 100
+font_color = Color(0, 1, 0, 1)
 
 [node name="CanvasLayer" type="CanvasLayer"]
 

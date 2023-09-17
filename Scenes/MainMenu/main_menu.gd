@@ -2,6 +2,7 @@ extends Control
 
 
 var credits = preload("res://Scenes/Credits/credits.tscn")
+@onready var first_time = get_node("/root/first").first
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -10,7 +11,10 @@ func _process(delta):
 
 
 func _on_play_pressed():
-	get_tree().change_scene_to_file("res://Scenes/Game/game.tscn")
+	if first_time:
+		get_tree().change_scene_to_file("res://Scenes/Cutscene/cutscene.tscn")
+	else:
+		get_tree().change_scene_to_file("res://Scenes/Game/game.tscn")
 
 
 func _on_credits_pressed():

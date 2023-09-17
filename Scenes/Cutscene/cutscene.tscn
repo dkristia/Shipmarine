@@ -1,0 +1,124 @@
+[gd_scene load_steps=19 format=3 uid="uid://d3bkq56rxk5ol"]
+
+[ext_resource type="Script" path="res://Scenes/Cutscene/cutscene.gd" id="1_eiejo"]
+[ext_resource type="Texture2D" uid="uid://bdiec42hmnbm0" path="res://Scenes/Cutscene/cutscene_1.png" id="2_2cvn0"]
+[ext_resource type="Texture2D" uid="uid://d3avhk0nej8fl" path="res://Scenes/Cutscene/cutscene_2.png" id="3_vglwd"]
+[ext_resource type="Texture2D" uid="uid://cnd0gd53wx3y5" path="res://Scenes/Cutscene/cutscene_3.png" id="4_d6q0c"]
+[ext_resource type="Texture2D" uid="uid://dgllwa6pf07sn" path="res://Scenes/Cutscene/cutscene_4.png" id="5_oifmv"]
+[ext_resource type="Texture2D" uid="uid://ctyncgaoe3tx" path="res://Scenes/Cutscene/cutscene_5.png" id="6_r432t"]
+[ext_resource type="Texture2D" uid="uid://dhm1pu3p4w3jt" path="res://Scenes/Cutscene/cutscene_6.png" id="7_fdyuc"]
+[ext_resource type="Texture2D" uid="uid://cabyk1lllruqn" path="res://Scenes/Cutscene/cutscene_7.png" id="8_4084i"]
+[ext_resource type="Texture2D" uid="uid://doru3vihvuq0h" path="res://Scenes/Cutscene/cutscene_8.png" id="9_k7ech"]
+[ext_resource type="Texture2D" uid="uid://up70j07xxj3m" path="res://Scenes/Cutscene/cutscene_9.png" id="10_yw4iy"]
+[ext_resource type="Texture2D" uid="uid://do44yfk35chur" path="res://Scenes/Cutscene/cutscene_10.png" id="11_nlbi8"]
+[ext_resource type="Texture2D" uid="uid://j8jqufncdmuv" path="res://Scenes/Cutscene/cutscene_11.png" id="12_psj6u"]
+[ext_resource type="Texture2D" uid="uid://ccpjtcr652tx8" path="res://Scenes/Cutscene/cutscene_12.png" id="13_ugnee"]
+[ext_resource type="AudioStream" uid="uid://6bobsayc528k" path="res://Scenes/Cutscene/Cutscene.wav" id="14_85rk3"]
+[ext_resource type="AudioStream" uid="uid://bnyu0ltnba720" path="res://Scenes/Cutscene/workingsounds.wav" id="15_w0fob"]
+[ext_resource type="AudioStream" uid="uid://dw7dqwy5yfhse" path="res://Scenes/Cutscene/leavingsounds.wav" id="16_fbueu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_yvhjk"]
+font_size = 40
+font_color = Color(0.827451, 0.827451, 0.827451, 1)
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g3h8b"]
+
+[node name="cutscene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_eiejo")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Cutscene1" type="Sprite2D" parent="CanvasLayer"]
+texture = ExtResource("2_2cvn0")
+centered = false
+
+[node name="Cutscene2" type="Sprite2D" parent="CanvasLayer"]
+visible = false
+texture = ExtResource("3_vglwd")
+centered = false
+
+[node name="Cutscene3" type="Sprite2D" parent="CanvasLayer"]
+visible = false
+texture = ExtResource("4_d6q0c")
+centered = false
+
+[node name="Cutscene4" type="Sprite2D" parent="CanvasLayer"]
+visible = false
+texture = ExtResource("5_oifmv")
+centered = false
+
+[node name="Cutscene5" type="Sprite2D" parent="CanvasLayer"]
+visible = false
+texture = ExtResource("6_r432t")
+centered = false
+
+[node name="Cutscene6" type="Sprite2D" parent="CanvasLayer"]
+visible = false
+texture = ExtResource("7_fdyuc")
+centered = false
+
+[node name="Cutscene7" type="Sprite2D" parent="CanvasLayer"]
+visible = false
+texture = ExtResource("8_4084i")
+centered = false
+
+[node name="Cutscene8" type="Sprite2D" parent="CanvasLayer"]
+visible = false
+texture = ExtResource("9_k7ech")
+centered = false
+
+[node name="Cutscene9" type="Sprite2D" parent="CanvasLayer"]
+visible = false
+texture = ExtResource("10_yw4iy")
+centered = false
+
+[node name="Cutscene10" type="Sprite2D" parent="CanvasLayer"]
+visible = false
+texture = ExtResource("11_nlbi8")
+centered = false
+
+[node name="Cutscene11" type="Sprite2D" parent="CanvasLayer"]
+visible = false
+texture = ExtResource("12_psj6u")
+centered = false
+
+[node name="Cutscene12" type="Sprite2D" parent="CanvasLayer"]
+visible = false
+texture = ExtResource("13_ugnee")
+centered = false
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Click to continue"
+label_settings = SubResource("LabelSettings_yvhjk")
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+custom_minimum_size = Vector2(1280, 720)
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_g3h8b")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_g3h8b")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_g3h8b")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_g3h8b")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_g3h8b")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_85rk3")
+autoplay = true
+
+[node name="working" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_w0fob")
+
+[node name="leaving" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_fbueu")
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]

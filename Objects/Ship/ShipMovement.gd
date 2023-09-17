@@ -16,6 +16,7 @@ var inWater = false
 func _physics_process(delta):
 	if $"/root/Game".isDead:
 		_animated_sprite.play("explosion")
+		_depth_text.visible = false
 		return
 	if position.y >= 500000:
 		get_tree().change_scene_to_file("res://Scenes/GameOver/game_over.tscn")

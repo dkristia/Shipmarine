@@ -18,6 +18,7 @@
 [ext_resource type="AudioStream" uid="uid://cydkqhls2y5w4" path="res://Objects/Ship/explosion.wav" id="15_0ox0s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a6ljk"]
+size = Vector2(10, 20)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hrgc0"]
 animations = [{
@@ -110,6 +111,7 @@ collision_mask = 2
 script = ExtResource("1_o71jj")
 
 [node name="HitBox" type="CollisionShape2D" parent="."]
+position = Vector2(5, 0)
 scale = Vector2(1, 0.30303)
 shape = SubResource("RectangleShape2D_a6ljk")
 

@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://c2xwpnfsboxud"]
+
+[ext_resource type="Texture2D" uid="uid://bod8bgtkj6es" path="res://Scenes/Victory/winscreen.png" id="1_8kwxo"]
+[ext_resource type="Script" path="res://Scenes/Victory/victory.gd" id="1_no2el"]
+[ext_resource type="AudioStream" uid="uid://dbqc7enqr20pc" path="res://Scenes/Victory/Victory.wav" id="2_nrbrp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_t8us4"]
+font_size = 50
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qqqdh"]
+
+[node name="victory" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_no2el")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Winscreen" type="Sprite2D" parent="CanvasLayer"]
+texture = ExtResource("1_8kwxo")
+centered = false
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 436.0
+offset_top = 631.0
+offset_right = 873.0
+offset_bottom = 703.0
+text = "Click to play again"
+label_settings = SubResource("LabelSettings_t8us4")
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+offset_right = 1280.0
+offset_bottom = 720.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qqqdh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_qqqdh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_qqqdh")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_qqqdh")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qqqdh")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_nrbrp")
+autoplay = true
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
