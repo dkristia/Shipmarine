@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://d3bkq56rxk5ol"]
+[gd_scene load_steps=20 format=3 uid="uid://d3bkq56rxk5ol"]
 
 [ext_resource type="Script" path="res://Scenes/Cutscene/cutscene.gd" id="1_eiejo"]
 [ext_resource type="Texture2D" uid="uid://bdiec42hmnbm0" path="res://Scenes/Cutscene/cutscene_1.png" id="2_2cvn0"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://j8jqufncdmuv" path="res://Scenes/Cutscene/cutscene_11.png" id="12_psj6u"]
 [ext_resource type="Texture2D" uid="uid://ccpjtcr652tx8" path="res://Scenes/Cutscene/cutscene_12.png" id="13_ugnee"]
 [ext_resource type="AudioStream" uid="uid://6bobsayc528k" path="res://Scenes/Cutscene/Cutscene.wav" id="14_85rk3"]
+[ext_resource type="Shortcut" uid="uid://cq0qrt6m2ayr5" path="res://Scenes/accept.tres" id="14_w8smn"]
 [ext_resource type="AudioStream" uid="uid://bnyu0ltnba720" path="res://Scenes/Cutscene/workingsounds.wav" id="15_w0fob"]
 [ext_resource type="AudioStream" uid="uid://dw7dqwy5yfhse" path="res://Scenes/Cutscene/leavingsounds.wav" id="16_fbueu"]
 
@@ -110,6 +111,9 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_g3h8b")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_g3h8b")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_g3h8b")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_g3h8b")
+shortcut = ExtResource("14_w8smn")
+shortcut_feedback = false
+shortcut_in_tooltip = false
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_85rk3")

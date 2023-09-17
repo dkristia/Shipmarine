@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://c2xwpnfsboxud"]
+[gd_scene load_steps=7 format=3 uid="uid://c2xwpnfsboxud"]
 
 [ext_resource type="Texture2D" uid="uid://bod8bgtkj6es" path="res://Scenes/Victory/winscreen.png" id="1_8kwxo"]
 [ext_resource type="Script" path="res://Scenes/Victory/victory.gd" id="1_no2el"]
 [ext_resource type="AudioStream" uid="uid://dbqc7enqr20pc" path="res://Scenes/Victory/Victory.wav" id="2_nrbrp"]
+[ext_resource type="Shortcut" uid="uid://cq0qrt6m2ayr5" path="res://Scenes/accept.tres" id="3_2h41g"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_t8us4"]
 font_size = 50
@@ -40,6 +41,9 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_qqqdh")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_qqqdh")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_qqqdh")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_qqqdh")
+shortcut = ExtResource("3_2h41g")
+shortcut_feedback = false
+shortcut_in_tooltip = false
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_nrbrp")

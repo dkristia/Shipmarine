@@ -5,6 +5,8 @@ extends Node2D
 @export var isDead = false
 @onready var timer = $Timer
 
+@export var winScore = 150
+
 var enemies = []
 
 var rng = RandomNumberGenerator.new()
@@ -22,11 +24,11 @@ func _process(delta):
 	
 	score += speed * delta
 	
-	speed += delta*0.1
+	speed += delta*0.07
 	
 	_score.text = str(int(score)) + "m"
 	
-	if score >= 100:
+	if score >= winScore:
 		get_tree().change_scene_to_file("res://Scenes/Victory/victory.tscn")
 	
 	if isDead:

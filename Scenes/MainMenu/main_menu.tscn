@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cheuh2glva5xp"]
+[gd_scene load_steps=8 format=3 uid="uid://cheuh2glva5xp"]
 
 [ext_resource type="Script" path="res://Scenes/MainMenu/main_menu.gd" id="1_it2h2"]
 [ext_resource type="Texture2D" uid="uid://cmtg2bdypvjtr" path="res://Scenes/MainMenu/mainmenu_nobuttons.png" id="2_76gyl"]
+[ext_resource type="Shortcut" uid="uid://cq0qrt6m2ayr5" path="res://Scenes/accept.tres" id="3_rmt65"]
 [ext_resource type="Texture2D" uid="uid://dsqssar4clfc2" path="res://Scenes/MainMenu/mainmenu_playgame.png" id="3_w31gp"]
 [ext_resource type="Texture2D" uid="uid://bojjesvetsyim" path="res://Scenes/MainMenu/mainmenu_credits.png" id="4_qxdki"]
 [ext_resource type="Texture2D" uid="uid://bdushqs3q7da3" path="res://Scenes/MainMenu/mainmenu_exitgame.png" id="5_rente"]
@@ -44,6 +45,7 @@ theme_override_constants/margin_bottom = 130
 [node name="Play" type="Button" parent="CanvasLayer/VBoxContainer/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 0
+shortcut = ExtResource("3_rmt65")
 icon = ExtResource("3_w31gp")
 
 [node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/VBoxContainer"]

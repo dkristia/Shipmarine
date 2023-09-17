@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cdywgr4lpuseu"]
+[gd_scene load_steps=6 format=3 uid="uid://cdywgr4lpuseu"]
 
 [ext_resource type="Script" path="res://Scenes/GameOver/game_over.gd" id="1_voxts"]
+[ext_resource type="Shortcut" uid="uid://cq0qrt6m2ayr5" path="res://Scenes/accept.tres" id="2_8gtbx"]
 [ext_resource type="Texture2D" uid="uid://rnpgm1iyhtn5" path="res://Scenes/GameOver/deathscreen_playagain.png" id="2_o58dx"]
 [ext_resource type="AudioStream" uid="uid://dggv3y367mlf4" path="res://Scenes/GameOver/Dead.wav" id="2_vmtfg"]
 [ext_resource type="Texture2D" uid="uid://ba6vdpko4ga43" path="res://Scenes/GameOver/deathscreen_exitgame.png" id="3_rfpnp"]
@@ -45,6 +46,9 @@ alignment = 1
 
 [node name="play" type="Button" parent="CanvasLayer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
+shortcut = ExtResource("2_8gtbx")
+shortcut_feedback = false
+shortcut_in_tooltip = false
 icon = ExtResource("2_o58dx")
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HBoxContainer"]
