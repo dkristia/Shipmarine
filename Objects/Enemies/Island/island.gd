@@ -6,7 +6,7 @@ func _ready():
 	position.x = 1100
 	super._ready()
 	var currenty = 148
-	for n in 100:
+	for n in 300:
 		var bottom = islandbottom.instantiate()
 		add_child(bottom)
 		bottom.position.y = currenty

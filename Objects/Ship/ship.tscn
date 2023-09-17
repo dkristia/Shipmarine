@@ -17,9 +17,6 @@
 [ext_resource type="Texture2D" uid="uid://mr2yl40thbu4" path="res://Sprites/Ship/startup/ship_engine_toggle_6.png" id="14_4xmq1"]
 [ext_resource type="AudioStream" uid="uid://cydkqhls2y5w4" path="res://Objects/Ship/explosion.wav" id="15_0ox0s"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_a6ljk"]
-size = Vector2(10, 20)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_hrgc0"]
 animations = [{
 "frames": [{
@@ -105,15 +102,13 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a6ljk"]
+size = Vector2(10, 20)
+
 [node name="Ship" type="CharacterBody2D" groups=["player_character"]]
 scale = Vector2(2.64, 2.64)
 collision_mask = 2
 script = ExtResource("1_o71jj")
-
-[node name="HitBox" type="CollisionShape2D" parent="."]
-position = Vector2(5, 0)
-scale = Vector2(1, 0.30303)
-shape = SubResource("RectangleShape2D_a6ljk")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(114.394, 0)
@@ -128,3 +123,8 @@ autoplay = "default"
 
 [node name="Explosion" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_0ox0s")
+
+[node name="HitBox" type="CollisionShape2D" parent="."]
+position = Vector2(4.92424, 0)
+scale = Vector2(1, 0.30303)
+shape = SubResource("RectangleShape2D_a6ljk")
