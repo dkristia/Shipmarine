@@ -4,17 +4,18 @@
 [ext_resource type="Texture2D" uid="uid://bpejtb21rqlp7" path="res://Sprites/Enemies/bigshipx4.png" id="2_oqv7k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wgdsr"]
-size = Vector2(21.6551, 20)
+size = Vector2(21.8954, 332.927)
 
 [node name="Bigship" type="Area2D"]
+z_index = -2
 script = ExtResource("1_57ll8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-4.71667, -35)
-scale = Vector2(14.8433, 7.08333)
+position = Vector2(2.5, -28)
+scale = Vector2(14.8433, 0.40333)
 shape = SubResource("RectangleShape2D_wgdsr")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Mainsprite" type="Sprite2D" parent="."]
 position = Vector2(0, -67)
 texture = ExtResource("2_oqv7k")
 

@@ -1,16 +1,22 @@
 extends Control
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
+var credits = preload("res://Scenes/Credits/credits.tscn")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 
 
-func _on_button_pressed():
+
+func _on_play_pressed():
 	get_tree().change_scene_to_file("res://Scenes/Game/game.tscn")
-	pass # Replace with function body.
+
+
+func _on_credits_pressed():
+	var credits_open = credits.instantiate()
+	add_sibling(credits_open)
+
+
+func _on_exit_pressed():
+	get_tree().quit()

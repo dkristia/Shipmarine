@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5gb8aw2ixjxm"]
+
+[ext_resource type="Texture2D" uid="uid://d1fwjsoj4vxk7" path="res://Sprites/Enemies/Island/Islandbottom.png" id="1_vvpjb"]
+
+[node name="Islandbottom" type="Sprite2D"]
+position = Vector2(0, 74)
+texture = ExtResource("1_vvpjb")

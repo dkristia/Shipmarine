@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cdywgr4lpuseu"]
+[gd_scene load_steps=3 format=3 uid="uid://cdywgr4lpuseu"]
 
 [ext_resource type="Script" path="res://Scenes/GameOver/game_over.gd" id="1_voxts"]
+[ext_resource type="AudioStream" uid="uid://dggv3y367mlf4" path="res://Scenes/GameOver/Dead.wav" id="2_vmtfg"]
 
 [node name="game_over" type="Control"]
 layout_mode = 3
@@ -10,6 +11,7 @@ offset_bottom = 40.0
 script = ExtResource("1_voxts")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 4
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 anchors_preset = 15
@@ -17,7 +19,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(1, 0, 0, 1)
+color = Color(1, 0, 0, 0.211765)
 metadata/_edit_use_anchors_ = true
 
 [node name="Button" type="Button" parent="CanvasLayer"]
@@ -36,5 +38,9 @@ scale = Vector2(3.48391, 4.95245)
 size_flags_horizontal = 4
 text = "RESTART"
 metadata/_edit_use_anchors_ = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_vmtfg")
+autoplay = true
 
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]

@@ -1,19 +1,24 @@
 extends CharacterBody2D
 
 const SPEED = 300.0
-const JUMP_VELOCITY = 15.0
+const JUMP_VELOCITY = 20.0
 var WATER_UPWARD_FORCE = -900.0
 const WATER_SURFACE_HEIGHT = 0.0
 @onready var _animated_sprite = $AnimatedSprite2D
-@onready var _background = $Camera2D/ColorRect
-@onready var _depth_text = $"../CanvasLayer/MarginContainer/HBoxContainer/Depth"
-@onready var _depth_meter = $"../CanvasLayer/MarginContainer/HBoxContainer/Depth/DepthMeter"
+@onready var _background = $"../ColorBackground/SkyColor"
+@onready var _depth_text = $"../GUI/MarginContainer/HBoxContainer/Depth"
+@onready var _depth_meter = $"../GUI/MarginContainer/HBoxContainer/Depth/DepthMeter"
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var inWater = false
 
 
 func _physics_process(delta):
+	if $"/root/Game".isDead:
+		_animated_sprite.play("explosion")
+		return
+	if position.y >= 500000:
+		get_tree().change_scene_to_file("res://Scenes/GameOver/game_over.tscn")
 	
 	if position.y <= 0:
 		_depth_text.text = "Height"
@@ -39,18 +44,14 @@ func _physics_process(delta):
 		velocity.y += JUMP_VELOCITY
 	
 	if Input.is_action_just_pressed("ui_accept"):
-		_animated_sprite.play("startup")
-		await _animated_sprite.animation_finished
-		_animated_sprite.play("activated")
+		animate("startup", "activated")
 		
 	if Input.is_action_just_released("ui_accept"):
-		_animated_sprite.play("startup-reversed")
-		await _animated_sprite.animation_finished
-		_animated_sprite.play("default")
+		animate("startup-reversed", "default")
 	
 	if (-20 < position.y and position.y < 20) and (-10 < velocity.y and velocity.y < 10):
 		velocity.y = 0
-
+	
 	move_and_slide()
 
 func _on_water_area_2d_body_entered(body):
@@ -61,3 +62,14 @@ func _on_water_area_2d_body_entered(body):
 func _on_water_area_2d_body_exited(body):
 	if body.is_in_group("player_character"):
 		inWater = false
+		
+func animate(anim1: String, anim2: String):
+		_animated_sprite.play(anim1)
+		await _animated_sprite.animation_finished
+		_animated_sprite.play(anim2)
+
+
+func _on_float_box_body_entered(body):
+	print("hi")
+	inWater = true
+	velocity.y -= velocity.y*0.6

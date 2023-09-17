@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://0exdyf8jixqg"]
+
+[ext_resource type="Script" path="res://Scenes/Credits/credits.gd" id="1_glv23"]
+[ext_resource type="Texture2D" uid="uid://dikvx4an2k2il" path="res://Scenes/Credits/credits.png" id="1_yfex8"]
+[ext_resource type="Texture2D" uid="uid://cuy8snqm2rn6g" path="res://Scenes/Credits/backbutton.png" id="2_p2u4w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d4ptj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s3lnt"]
+
+[node name="credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_glv23")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Credits" type="Sprite2D" parent="CanvasLayer"]
+texture = ExtResource("1_yfex8")
+centered = false
+
+[node name="Back" type="Button" parent="CanvasLayer"]
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_d4ptj")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_s3lnt")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_s3lnt")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_s3lnt")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_s3lnt")
+icon = ExtResource("2_p2u4w")
+
+[connection signal="pressed" from="CanvasLayer/Back" to="." method="_on_back_pressed"]

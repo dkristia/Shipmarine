@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://7oowi02xxwvd"]
+
+[ext_resource type="Script" path="res://Objects/Enemies/Island/island.gd" id="1_3mh5j"]
+[ext_resource type="Texture2D" uid="uid://s6e6chtypi0m" path="res://Sprites/Enemies/Island/islandtop.png" id="2_hrfe1"]
+[ext_resource type="PackedScene" uid="uid://c5gb8aw2ixjxm" path="res://Objects/Enemies/Island/islandbottom.tscn" id="3_t14sl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wgdsr"]
+size = Vector2(21.8954, 332.927)
+
+[node name="Island" type="Area2D"]
+z_index = -2
+script = ExtResource("1_3mh5j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 49896.1)
+scale = Vector2(5, 300)
+shape = SubResource("RectangleShape2D_wgdsr")
+
+[node name="Mainsprite" type="Sprite2D" parent="."]
+position = Vector2(0, -32)
+texture = ExtResource("2_hrfe1")
+
+[node name="Islandbottom" parent="." instance=ExtResource("3_t14sl")]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered" flags=18]

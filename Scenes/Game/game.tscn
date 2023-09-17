@@ -1,25 +1,48 @@
-[gd_scene load_steps=6 format=3 uid="uid://de0l0mes5wf5y"]
+[gd_scene load_steps=7 format=3 uid="uid://de0l0mes5wf5y"]
 
 [ext_resource type="Script" path="res://Scenes/Game/game.gd" id="1_jqw3p"]
 [ext_resource type="PackedScene" uid="uid://d3yqpj1afsgti" path="res://Objects/Ship/ship.tscn" id="1_prw3a"]
 [ext_resource type="PackedScene" uid="uid://br8g4kuob6xpt" path="res://Objects/Water/water_area_2d.tscn" id="2_ird0y"]
+[ext_resource type="PackedScene" uid="uid://whb1vuykr38l" path="res://parallax_background.tscn" id="2_m0kst"]
 [ext_resource type="PackedScene" uid="uid://b5qk8b34to1ox" path="res://GUI.tscn" id="3_op2in"]
-[ext_resource type="PackedScene" uid="uid://c5bwl5mym3wcv" path="res://Objects/Enemies/BigShip/bigship.tscn" id="5_4x0g6"]
+[ext_resource type="AudioStream" uid="uid://csfan4k0wctam" path="res://Scenes/Game/Gameplay2.wav" id="7_e818d"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_jqw3p")
 
-[node name="WaterArea2D" parent="." instance=ExtResource("2_ird0y")]
-position = Vector2(0, 2225.52)
-scale = Vector2(153.817, 203.754)
+[node name="ColorBackground" type="CanvasLayer" parent="."]
+layer = -10
 
-[node name="CanvasLayer" parent="." instance=ExtResource("3_op2in")]
+[node name="SkyColor" type="ColorRect" parent="ColorBackground"]
+show_behind_parent = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.105882, 0.615686, 1, 0)
 
-[node name="Bigship" parent="." instance=ExtResource("5_4x0g6")]
-position = Vector2(613.945, -71.5924)
+[node name="ParallaxBackground" parent="ColorBackground" instance=ExtResource("2_m0kst")]
+layer = -2
+offset = Vector2(-338, 0)
+transform = Transform2D(1, 0, 0, 1, -338, 0)
+follow_viewport_enabled = true
 
 [node name="Ship" parent="." instance=ExtResource("1_prw3a")]
-position = Vector2(0, -6)
+position = Vector2(0, -22)
+
+[node name="WaterArea2D" parent="." instance=ExtResource("2_ird0y")]
+
+[node name="GUI" parent="." instance=ExtResource("3_op2in")]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 7.0
+autostart = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_e818d")
+autoplay = true
 
 [connection signal="body_entered" from="WaterArea2D" to="Ship" method="_on_water_area_2d_body_entered"]
 [connection signal="body_exited" from="WaterArea2D" to="Ship" method="_on_water_area_2d_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

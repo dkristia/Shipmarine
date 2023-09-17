@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://d3yqpj1afsgti"]
+[gd_scene load_steps=19 format=3 uid="uid://d3yqpj1afsgti"]
 
 [ext_resource type="Script" path="res://Objects/Ship/ShipMovement.gd" id="1_o71jj"]
 [ext_resource type="Texture2D" uid="uid://dh4d4yno58p4v" path="res://Sprites/Ship/animation2/ship_activated_new_1.png" id="2_heyfv"]
@@ -10,10 +10,12 @@
 [ext_resource type="Texture2D" uid="uid://b6ckejqntvfvn" path="res://Sprites/Ship/animation2/ship_activated_new_7.png" id="8_ufo8g"]
 [ext_resource type="Texture2D" uid="uid://dq0n8op21vla6" path="res://Sprites/Ship/ship-standard.png" id="9_qd5as"]
 [ext_resource type="Texture2D" uid="uid://bjinhoan7xglq" path="res://Sprites/Ship/startup/ship_engine_toggle_2.png" id="10_hjjcq"]
+[ext_resource type="Texture2D" uid="uid://koduqyrooy8t" path="res://Sprites/Ship/explosion.png" id="10_sdia8"]
 [ext_resource type="Texture2D" uid="uid://cdvqg30nx7ixu" path="res://Sprites/Ship/startup/ship_engine_toggle_3.png" id="11_hqoc6"]
 [ext_resource type="Texture2D" uid="uid://bwso0x23my7c0" path="res://Sprites/Ship/startup/ship_engine_toggle_4.png" id="12_8h4la"]
 [ext_resource type="Texture2D" uid="uid://ccy3h6ludmoe4" path="res://Sprites/Ship/startup/ship_engine_toggle_5.png" id="13_3m6gn"]
 [ext_resource type="Texture2D" uid="uid://mr2yl40thbu4" path="res://Sprites/Ship/startup/ship_engine_toggle_6.png" id="14_4xmq1"]
+[ext_resource type="AudioStream" uid="uid://cydkqhls2y5w4" path="res://Objects/Ship/explosion.wav" id="15_0ox0s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a6ljk"]
 
@@ -52,6 +54,14 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_sdia8")
+}],
+"loop": true,
+"name": &"explosion",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -96,10 +106,10 @@ animations = [{
 
 [node name="Ship" type="CharacterBody2D" groups=["player_character"]]
 scale = Vector2(2.64, 2.64)
-collision_mask = 3
+collision_mask = 2
 script = ExtResource("1_o71jj")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="HitBox" type="CollisionShape2D" parent="."]
 scale = Vector2(1, 0.30303)
 shape = SubResource("RectangleShape2D_a6ljk")
 
@@ -108,18 +118,11 @@ position = Vector2(114.394, 0)
 scale = Vector2(0.378788, 0.378788)
 position_smoothing_enabled = true
 
-[node name="ColorRect" type="ColorRect" parent="Camera2D"]
-z_index = -10
-custom_minimum_size = Vector2(10000, 10000)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.105882, 0.615686, 1, 1)
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -20.8333)
 scale = Vector2(1.18939, 1.18939)
 sprite_frames = SubResource("SpriteFrames_hrgc0")
-frame_progress = 0.600598
+autoplay = "default"
+
+[node name="Explosion" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_0ox0s")

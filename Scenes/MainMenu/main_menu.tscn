@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://cheuh2glva5xp"]
+[gd_scene load_steps=7 format=3 uid="uid://cheuh2glva5xp"]
 
 [ext_resource type="Script" path="res://Scenes/MainMenu/main_menu.gd" id="1_it2h2"]
+[ext_resource type="Texture2D" uid="uid://cmtg2bdypvjtr" path="res://Scenes/MainMenu/mainmenu_nobuttons.png" id="2_76gyl"]
+[ext_resource type="Texture2D" uid="uid://dsqssar4clfc2" path="res://Scenes/MainMenu/mainmenu_playgame.png" id="3_w31gp"]
+[ext_resource type="Texture2D" uid="uid://bojjesvetsyim" path="res://Scenes/MainMenu/mainmenu_credits.png" id="4_qxdki"]
+[ext_resource type="Texture2D" uid="uid://bdushqs3q7da3" path="res://Scenes/MainMenu/mainmenu_exitgame.png" id="5_rente"]
+[ext_resource type="AudioStream" uid="uid://0q6542811i7h" path="res://Scenes/MainMenu/Playground2.wav" id="6_mangh"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -13,30 +18,53 @@ script = ExtResource("1_it2h2")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.313726, 0.52549, 0.886275, 1)
-metadata/_edit_use_anchors_ = true
+[node name="MainmenuNobuttons" type="Sprite2D" parent="CanvasLayer"]
+texture = ExtResource("2_76gyl")
+centered = false
 
-[node name="Button" type="Button" parent="CanvasLayer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -396.0
-offset_top = -95.0
-offset_right = -281.0
-offset_bottom = -64.0
+offset_left = -191.0
+offset_top = -161.0
+offset_right = 191.0
+offset_bottom = 87.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(7.12181, 5.62866)
 size_flags_horizontal = 4
-text = "PLAY GAME!!!!"
-metadata/_edit_use_anchors_ = true
+size_flags_vertical = 0
 
-[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 130
+
+[node name="Play" type="Button" parent="CanvasLayer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+icon = ExtResource("3_w31gp")
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 130
+
+[node name="Credits" type="Button" parent="CanvasLayer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+icon = ExtResource("4_qxdki")
+
+[node name="MarginContainer3" type="MarginContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Exit" type="Button" parent="CanvasLayer/VBoxContainer/MarginContainer3"]
+layout_mode = 2
+icon = ExtResource("5_rente")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_mangh")
+autoplay = true
+
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/MarginContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/MarginContainer2/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/MarginContainer3/Exit" to="." method="_on_exit_pressed"]
