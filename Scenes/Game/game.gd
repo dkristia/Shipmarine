@@ -5,6 +5,8 @@ extends Node2D
 @export var isDead = false
 @onready var timer = $Timer
 
+@onready var vars = get_node("/root/first")
+
 @export var winScore = 150
 
 var enemies = []
@@ -28,7 +30,7 @@ func _process(delta):
 	
 	_score.text = str(int(score)) + "m"
 	
-	if score >= winScore:
+	if (vars.endless == false) and (score >= winScore):
 		get_tree().change_scene_to_file("res://Scenes/Victory/victory.tscn")
 	
 	if isDead:

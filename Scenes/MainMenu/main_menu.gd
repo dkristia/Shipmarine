@@ -2,16 +2,19 @@ extends Control
 
 
 var credits = preload("res://Scenes/Credits/credits.tscn")
-@onready var first_time = get_node("/root/first").first
+@onready var vars = get_node("/root/first")
+
+@onready var endlessLabel = $CanvasLayer/EndlessLabel
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	endlessLabel.text = str(vars.endless)
 	pass
 
 
 
 func _on_play_pressed():
-	if first_time:
+	if vars.first:
 		get_tree().change_scene_to_file("res://Scenes/Cutscene/cutscene.tscn")
 	else:
 		get_tree().change_scene_to_file("res://Scenes/Game/game.tscn")
@@ -24,3 +27,7 @@ func _on_credits_pressed():
 
 func _on_exit_pressed():
 	get_tree().quit()
+
+
+func _on_endless_pressed():
+	vars.endless = !vars.endless
