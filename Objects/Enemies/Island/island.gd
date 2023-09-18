@@ -10,6 +10,7 @@ func _ready():
 		add_child(bottom)
 		bottom.position.y = currenty
 		currenty += 148
+	movespeed = 0
 
 
 func _process(delta):

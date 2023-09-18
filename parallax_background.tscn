@@ -12,7 +12,7 @@ motion_mirroring = Vector2(1920, 0)
 
 [node name="Sky" type="Sprite2D" parent="Clouds"]
 texture_repeat = 2
-position = Vector2(-460, -1080)
+position = Vector2(-460, -15000)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_tognv")
 centered = false

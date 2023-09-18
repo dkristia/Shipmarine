@@ -8,6 +8,8 @@ extends Area2D
 var _explosion = preload("res://Sprites/Ship/explosion.png")
 var gameOverscene = preload("res://Scenes/GameOver/game_over.tscn")
 
+var movespeed = 10
+
 
 func _ready():
 	position.x = 1920.0/2.0+500.0 + float(mainSprite.texture.get_width())/2.0 * float(mainSprite.scale.x)
@@ -20,6 +22,10 @@ func _process(delta):
 	position.x -= delta*speed*100
 	if position.x <= -1000:
 		queue_free()
+	if $MainSprite.flip_h:
+		position.x += speed*delta*movespeed
+	else:
+		position.x -= speed*delta*movespeed
 
 
 func _on_body_entered(body):
