@@ -6,7 +6,6 @@ extends ParallaxBackground
 func _ready():
 	sky.position.y = -sky.texture.get_height()*1.5
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	speed = $"/root/Game".speed

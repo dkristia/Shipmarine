@@ -38,79 +38,80 @@ script = ExtResource("1_eiejo")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Cutscene1" type="Sprite2D" parent="CanvasLayer"]
-scale = Vector2(1.5, 1.5)
+scale = Vector2(2, 2)
 texture = ExtResource("2_2cvn0")
 centered = false
 
 [node name="Cutscene2" type="Sprite2D" parent="CanvasLayer"]
 visible = false
-scale = Vector2(1.5, 1.5)
+scale = Vector2(2, 2)
 texture = ExtResource("3_vglwd")
 centered = false
 
 [node name="Cutscene3" type="Sprite2D" parent="CanvasLayer"]
 visible = false
-scale = Vector2(1.5, 1.5)
+scale = Vector2(2, 2)
 texture = ExtResource("4_d6q0c")
 centered = false
 
 [node name="Cutscene4" type="Sprite2D" parent="CanvasLayer"]
 visible = false
-scale = Vector2(1.5, 1.5)
+scale = Vector2(2, 2)
 texture = ExtResource("5_oifmv")
 centered = false
 
 [node name="Cutscene5" type="Sprite2D" parent="CanvasLayer"]
 visible = false
-scale = Vector2(1.5, 1.5)
+scale = Vector2(2, 2)
 texture = ExtResource("6_r432t")
 centered = false
 
 [node name="Cutscene6" type="Sprite2D" parent="CanvasLayer"]
 visible = false
-scale = Vector2(1.5, 1.5)
+scale = Vector2(2, 2)
 texture = ExtResource("7_fdyuc")
 centered = false
 
 [node name="Cutscene7" type="Sprite2D" parent="CanvasLayer"]
 visible = false
-scale = Vector2(1.5, 1.5)
+scale = Vector2(2, 2)
 texture = ExtResource("8_4084i")
 centered = false
 
 [node name="Cutscene8" type="Sprite2D" parent="CanvasLayer"]
 visible = false
-scale = Vector2(1.5, 1.5)
+scale = Vector2(2, 2)
 texture = ExtResource("9_k7ech")
 centered = false
 
 [node name="Cutscene9" type="Sprite2D" parent="CanvasLayer"]
 visible = false
-scale = Vector2(1.5, 1.5)
+scale = Vector2(2, 2)
 texture = ExtResource("10_yw4iy")
 centered = false
 
 [node name="Cutscene10" type="Sprite2D" parent="CanvasLayer"]
 visible = false
-scale = Vector2(1.5, 1.5)
+scale = Vector2(2, 2)
 texture = ExtResource("11_nlbi8")
 centered = false
 
 [node name="Cutscene11" type="Sprite2D" parent="CanvasLayer"]
 visible = false
-scale = Vector2(1.5, 1.5)
+scale = Vector2(2, 2)
 texture = ExtResource("12_psj6u")
 centered = false
 
 [node name="Cutscene12" type="Sprite2D" parent="CanvasLayer"]
 visible = false
-scale = Vector2(1.5, 1.5)
+scale = Vector2(2, 2)
 texture = ExtResource("13_ugnee")
 centered = false
 
 [node name="Label" type="Label" parent="CanvasLayer"]
 offset_right = 40.0
 offset_bottom = 23.0
+scale = Vector2(2, 2)
 text = "Click to continue"
 label_settings = SubResource("LabelSettings_yvhjk")
 
@@ -118,7 +119,7 @@ label_settings = SubResource("LabelSettings_yvhjk")
 custom_minimum_size = Vector2(1280, 720)
 offset_right = 8.0
 offset_bottom = 8.0
-scale = Vector2(1.5, 1.5)
+scale = Vector2(2, 2)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_g3h8b")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_g3h8b")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_g3h8b")
