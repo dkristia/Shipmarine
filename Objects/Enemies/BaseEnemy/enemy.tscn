@@ -4,11 +4,13 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wgdsr"]
 
-[node name="Enemy" type="Area2D"]
+[node name="Enemy" type="Area2D" groups=["enemy"]]
 script = ExtResource("1_tfut7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(7, 7)
 shape = SubResource("RectangleShape2D_wgdsr")
+
+[node name="MainSprite" type="Sprite2D" parent="."]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

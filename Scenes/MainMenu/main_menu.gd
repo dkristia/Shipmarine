@@ -7,7 +7,7 @@ var credits = preload("res://Scenes/Credits/credits.tscn")
 @onready var endlessLabel = $CanvasLayer/EndlessLabel
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	endlessLabel.text = str(vars.endless)
 	pass
 

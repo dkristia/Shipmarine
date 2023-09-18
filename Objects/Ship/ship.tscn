@@ -111,8 +111,8 @@ collision_mask = 2
 script = ExtResource("1_o71jj")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(114.394, 0)
-scale = Vector2(0.378788, 0.378788)
+offset = Vector2(500, 0)
+limit_smoothed = true
 position_smoothing_enabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

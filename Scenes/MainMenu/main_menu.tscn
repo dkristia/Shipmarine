@@ -20,6 +20,7 @@ script = ExtResource("1_it2h2")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="MainmenuNobuttons" type="Sprite2D" parent="CanvasLayer"]
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_76gyl")
 centered = false
 
@@ -29,12 +30,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -191.0
-offset_top = -161.0
-offset_right = 191.0
-offset_bottom = 87.0
+offset_left = -286.0
+offset_top = -436.0
+offset_right = 96.0
+offset_bottom = 72.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.5, 1.5)
 size_flags_horizontal = 4
 size_flags_vertical = 0
 
@@ -66,12 +68,14 @@ icon = ExtResource("5_rente")
 [node name="Endless" type="Button" parent="CanvasLayer"]
 offset_right = 8.0
 offset_bottom = 8.0
+scale = Vector2(1.5, 1.5)
 text = "Endless mode"
 
 [node name="EndlessLabel" type="Label" parent="CanvasLayer"]
-offset_top = 32.0
+offset_top = 44.0
 offset_right = 40.0
-offset_bottom = 55.0
+offset_bottom = 70.0
+scale = Vector2(1.5, 1.5)
 text = "off
 "
 

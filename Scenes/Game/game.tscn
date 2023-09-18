@@ -24,25 +24,28 @@ color = Color(0.105882, 0.615686, 1, 0)
 
 [node name="ParallaxBackground" parent="ColorBackground" instance=ExtResource("2_m0kst")]
 layer = -2
-offset = Vector2(-338, 0)
-transform = Transform2D(1, 0, 0, 1, -338, 0)
 follow_viewport_enabled = true
 
 [node name="Ship" parent="." instance=ExtResource("1_prw3a")]
-position = Vector2(0, -22)
 
 [node name="WaterArea2D" parent="." instance=ExtResource("2_ird0y")]
+position = Vector2(351, 0)
 
 [node name="GUI" parent="." instance=ExtResource("3_op2in")]
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 7.0
-autostart = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_e818d")
 autoplay = true
 
+[node name="RegularEnemyTimer" type="Timer" parent="."]
+wait_time = 7.0
+autostart = true
+
+[node name="SkyEnemyTimer" type="Timer" parent="."]
+wait_time = 6.0
+autostart = true
+
 [connection signal="body_entered" from="WaterArea2D" to="Ship" method="_on_water_area_2d_body_entered"]
 [connection signal="body_exited" from="WaterArea2D" to="Ship" method="_on_water_area_2d_body_exited"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="RegularEnemyTimer" to="." method="_on_regular_enemy_timer_timeout"]
+[connection signal="timeout" from="SkyEnemyTimer" to="." method="_on_sky_enemy_timer_timeout"]

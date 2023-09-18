@@ -11,11 +11,11 @@ size = Vector2(15.5477, 332.947)
 z_index = -2
 script = ExtResource("1_3mh5j")
 
-[node name="Mainsprite" type="Sprite2D" parent="."]
+[node name="MainSprite" type="Sprite2D" parent="."]
 position = Vector2(0, -32)
 texture = ExtResource("2_hrfe1")
 
-[node name="Islandbottom" parent="." instance=ExtResource("3_t14sl")]
+[node name="IslandBottom" parent="." instance=ExtResource("3_t14sl")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 49904)
