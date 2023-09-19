@@ -4,10 +4,16 @@ extends Area2D
 @onready var speed = $"/root/Game".speed
 @onready var isplayerdead = $"/root/Game".isDead
 @onready var explosion = $"/root/Game/Ship/Explosion"
+@onready var mainSprite = $MainSprite
+var _explosion = preload("res://Sprites/Ship/explosion.png")
 var gameOverscene = preload("res://Scenes/GameOver/game_over.tscn")
+
+var movespeed = 10
+
+
 func _ready():
-	position.x = 1500
-	position.y = 0
+	position.x = 1920.0/2.0+500.0 + float(mainSprite.texture.get_width())/2.0 * float(mainSprite.scale.x)
+	position.y = 0.0
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -16,6 +22,10 @@ func _process(delta):
 	position.x -= delta*speed*100
 	if position.x <= -1000:
 		queue_free()
+	if $MainSprite.flip_h:
+		position.x += speed*delta*movespeed
+	else:
+		position.x -= speed*delta*movespeed
 
 
 func _on_body_entered(body):

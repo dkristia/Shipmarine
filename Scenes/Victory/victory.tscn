@@ -22,20 +22,23 @@ script = ExtResource("1_no2el")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Winscreen" type="Sprite2D" parent="CanvasLayer"]
+scale = Vector2(2, 2)
 texture = ExtResource("1_8kwxo")
 centered = false
 
 [node name="Label" type="Label" parent="CanvasLayer"]
-offset_left = 436.0
-offset_top = 631.0
-offset_right = 873.0
-offset_bottom = 703.0
+offset_left = 872.0
+offset_top = 1260.0
+offset_right = 1309.0
+offset_bottom = 1332.0
+scale = Vector2(2, 2)
 text = "Click to play again"
 label_settings = SubResource("LabelSettings_t8us4")
 
 [node name="Button" type="Button" parent="CanvasLayer"]
 offset_right = 1280.0
 offset_bottom = 720.0
+scale = Vector2(2, 2)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_qqqdh")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_qqqdh")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_qqqdh")

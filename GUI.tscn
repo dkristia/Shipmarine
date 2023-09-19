@@ -3,17 +3,25 @@
 [sub_resource type="LabelSettings" id="LabelSettings_l5ddx"]
 line_spacing = 10.0
 font_size = 50
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_gh6ip"]
 font_size = 100
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_wgm0u"]
 font_size = 40
 font_color = Color(0, 1, 0, 1)
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_bh7ps"]
 font_size = 100
 font_color = Color(0, 1, 0, 1)
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
 
 [node name="CanvasLayer" type="CanvasLayer"]
 

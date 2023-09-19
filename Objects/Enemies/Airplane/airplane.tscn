@@ -1,21 +1,24 @@
 [gd_scene load_steps=4 format=3 uid="uid://bhlamemxy13f6"]
 
-[ext_resource type="Script" path="res://Objects/Enemies/BigShip/bigship.gd" id="1_lfvnh"]
-[ext_resource type="Texture2D" uid="uid://bpejtb21rqlp7" path="res://Sprites/Enemies/bigshipx4.png" id="2_u4a6c"]
+[ext_resource type="Script" path="res://Objects/Enemies/Airplane/airplane.gd" id="1_inob7"]
+[ext_resource type="Texture2D" uid="uid://bpb8svh1f8s1m" path="res://Sprites/Enemies/airplane.png" id="2_tscdt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wgdsr"]
 size = Vector2(21.6551, 20)
 
-[node name="Airplane" type="Area2D"]
-script = ExtResource("1_lfvnh")
+[node name="Airplane" type="Area2D" groups=["enemy"]]
+z_index = -2
+script = ExtResource("1_inob7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-4.71667, -35)
+position = Vector2(0, -105.08)
 scale = Vector2(14.8433, 7.08333)
 shape = SubResource("RectangleShape2D_wgdsr")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -67)
-texture = ExtResource("2_u4a6c")
+[node name="MainSprite" type="Sprite2D" parent="."]
+position = Vector2(0, -101.08)
+scale = Vector2(3.48, 3.48)
+texture = ExtResource("2_tscdt")
 
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

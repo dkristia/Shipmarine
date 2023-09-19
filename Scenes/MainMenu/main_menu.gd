@@ -4,10 +4,10 @@ extends Control
 var credits = preload("res://Scenes/Credits/credits.tscn")
 @onready var vars = get_node("/root/first")
 
-@onready var endlessLabel = $CanvasLayer/EndlessLabel
+@onready var endlessLabel = $CanvasLayer/Settings/EndlessLabel
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	endlessLabel.text = str(vars.endless)
 	pass
 

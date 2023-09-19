@@ -20,12 +20,14 @@ script = ExtResource("1_glv23")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Credits" type="Sprite2D" parent="CanvasLayer"]
+scale = Vector2(2, 2)
 texture = ExtResource("1_yfex8")
 centered = false
 
 [node name="Back" type="Button" parent="CanvasLayer"]
 offset_right = 8.0
 offset_bottom = 8.0
+scale = Vector2(2, 2)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_d4ptj")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_s3lnt")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_s3lnt")

@@ -68,9 +68,3 @@ func animate(anim1: String, anim2: String):
 		_animated_sprite.play(anim1)
 		await _animated_sprite.animation_finished
 		_animated_sprite.play(anim2)
-
-
-func _on_float_box_body_entered(body):
-	print("hi")
-	inWater = true
-	velocity.y -= velocity.y*0.6

@@ -1,10 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://cdywgr4lpuseu"]
+[gd_scene load_steps=8 format=3 uid="uid://cdywgr4lpuseu"]
 
 [ext_resource type="Script" path="res://Scenes/GameOver/game_over.gd" id="1_voxts"]
 [ext_resource type="Shortcut" uid="uid://cq0qrt6m2ayr5" path="res://Scenes/accept.tres" id="2_8gtbx"]
 [ext_resource type="Texture2D" uid="uid://rnpgm1iyhtn5" path="res://Scenes/GameOver/deathscreen_playagain.png" id="2_o58dx"]
 [ext_resource type="AudioStream" uid="uid://dggv3y367mlf4" path="res://Scenes/GameOver/Dead.wav" id="2_vmtfg"]
 [ext_resource type="Texture2D" uid="uid://ba6vdpko4ga43" path="res://Scenes/GameOver/deathscreen_exitgame.png" id="3_rfpnp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k7fdj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_glq5g"]
 
 [node name="game_over" type="Control"]
 layout_mode = 3
@@ -23,61 +27,54 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 0, 0, 0.211765)
-metadata/_edit_use_anchors_ = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 81.0
-offset_top = 69.0
-offset_right = 1099.0
-offset_bottom = 147.0
+anchors_preset = -1
+anchor_right = 1.11086
+anchor_bottom = 1.18191
+offset_top = 240.0
+offset_right = -1563.8
+offset_bottom = -741.95
+grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1.11086, 1.18191)
+scale = Vector2(2, 2)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 alignment = 1
+metadata/_edit_use_anchors_ = true
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
-alignment = 1
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_right = 250
 
-[node name="play" type="Button" parent="CanvasLayer/HBoxContainer/VBoxContainer2"]
+[node name="play" type="Button" parent="CanvasLayer/HBoxContainer/MarginContainer"]
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_k7fdj")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_k7fdj")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_k7fdj")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_k7fdj")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_k7fdj")
 shortcut = ExtResource("2_8gtbx")
 shortcut_feedback = false
 shortcut_in_tooltip = false
 icon = ExtResource("2_o58dx")
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/HBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer/MarginContainer"]
+[node name="exit" type="Button" parent="CanvasLayer/HBoxContainer/MarginContainer2"]
 layout_mode = 2
-text = "                                                           "
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-alignment = 1
-
-[node name="exit" type="Button" parent="CanvasLayer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_glq5g")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_glq5g")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_glq5g")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_glq5g")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_glq5g")
 icon = ExtResource("3_rfpnp")
-
-[node name="Label" type="Label" parent="CanvasLayer"]
-offset_left = 614.0
-offset_top = 72.0
-offset_right = 654.0
-offset_bottom = 95.0
-size_flags_horizontal = 4
-size_flags_vertical = 0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_vmtfg")
 autoplay = true
 
-[connection signal="pressed" from="CanvasLayer/HBoxContainer/VBoxContainer2/play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="CanvasLayer/HBoxContainer/VBoxContainer/exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/MarginContainer/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/MarginContainer2/exit" to="." method="_on_exit_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cheuh2glva5xp"]
+[gd_scene load_steps=11 format=3 uid="uid://cheuh2glva5xp"]
 
 [ext_resource type="Script" path="res://Scenes/MainMenu/main_menu.gd" id="1_it2h2"]
 [ext_resource type="Texture2D" uid="uid://cmtg2bdypvjtr" path="res://Scenes/MainMenu/mainmenu_nobuttons.png" id="2_76gyl"]
@@ -7,6 +7,12 @@
 [ext_resource type="Texture2D" uid="uid://bojjesvetsyim" path="res://Scenes/MainMenu/mainmenu_credits.png" id="4_qxdki"]
 [ext_resource type="Texture2D" uid="uid://bdushqs3q7da3" path="res://Scenes/MainMenu/mainmenu_exitgame.png" id="5_rente"]
 [ext_resource type="AudioStream" uid="uid://0q6542811i7h" path="res://Scenes/MainMenu/Playground2.wav" id="6_mangh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ftctx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q2bru"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dihx8"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -20,58 +26,83 @@ script = ExtResource("1_it2h2")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="MainmenuNobuttons" type="Sprite2D" parent="CanvasLayer"]
+scale = Vector2(2, 2)
 texture = ExtResource("2_76gyl")
 centered = false
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+[node name="Buttons" type="VBoxContainer" parent="CanvasLayer"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -191.0
-offset_top = -161.0
-offset_right = 191.0
-offset_bottom = 87.0
+offset_left = -400.0
+offset_top = -570.0
+offset_bottom = -62.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(2, 2)
 size_flags_horizontal = 4
 size_flags_vertical = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/VBoxContainer"]
+[node name="Play" type="MarginContainer" parent="CanvasLayer/Buttons"]
 layout_mode = 2
-theme_override_constants/margin_bottom = 130
+theme_override_constants/margin_bottom = 140
 
-[node name="Play" type="Button" parent="CanvasLayer/VBoxContainer/MarginContainer"]
+[node name="Play" type="Button" parent="CanvasLayer/Buttons/Play"]
 layout_mode = 2
 size_flags_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ftctx")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ftctx")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ftctx")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ftctx")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ftctx")
 shortcut = ExtResource("3_rmt65")
 icon = ExtResource("3_w31gp")
+icon_alignment = 1
 
-[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/VBoxContainer"]
+[node name="Credits" type="MarginContainer" parent="CanvasLayer/Buttons"]
 layout_mode = 2
-theme_override_constants/margin_bottom = 130
+theme_override_constants/margin_bottom = 140
 
-[node name="Credits" type="Button" parent="CanvasLayer/VBoxContainer/MarginContainer2"]
+[node name="Credits" type="Button" parent="CanvasLayer/Buttons/Credits"]
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_q2bru")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_q2bru")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_q2bru")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_q2bru")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_q2bru")
 icon = ExtResource("4_qxdki")
+icon_alignment = 1
 
-[node name="MarginContainer3" type="MarginContainer" parent="CanvasLayer/VBoxContainer"]
+[node name="Exit" type="MarginContainer" parent="CanvasLayer/Buttons"]
 layout_mode = 2
 
-[node name="Exit" type="Button" parent="CanvasLayer/VBoxContainer/MarginContainer3"]
+[node name="Exit" type="Button" parent="CanvasLayer/Buttons/Exit"]
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_dihx8")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_dihx8")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_dihx8")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_dihx8")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_dihx8")
 icon = ExtResource("5_rente")
+icon_alignment = 1
 
-[node name="Endless" type="Button" parent="CanvasLayer"]
-offset_right = 8.0
-offset_bottom = 8.0
+[node name="Settings" type="VBoxContainer" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="EndlessCont" type="MarginContainer" parent="CanvasLayer/Settings"]
+layout_mode = 2
+
+[node name="Endless" type="Button" parent="CanvasLayer/Settings/EndlessCont"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
 text = "Endless mode"
 
-[node name="EndlessLabel" type="Label" parent="CanvasLayer"]
-offset_top = 32.0
-offset_right = 40.0
-offset_bottom = 55.0
+[node name="EndlessLabel" type="Label" parent="CanvasLayer/Settings"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
 text = "off
 "
 
@@ -79,7 +110,7 @@ text = "off
 stream = ExtResource("6_mangh")
 autoplay = true
 
-[connection signal="pressed" from="CanvasLayer/VBoxContainer/MarginContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="CanvasLayer/VBoxContainer/MarginContainer2/Credits" to="." method="_on_credits_pressed"]
-[connection signal="pressed" from="CanvasLayer/VBoxContainer/MarginContainer3/Exit" to="." method="_on_exit_pressed"]
-[connection signal="pressed" from="CanvasLayer/Endless" to="." method="_on_endless_pressed"]
+[connection signal="pressed" from="CanvasLayer/Buttons/Play/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="CanvasLayer/Buttons/Credits/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="CanvasLayer/Buttons/Exit/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="CanvasLayer/Settings/EndlessCont/Endless" to="." method="_on_endless_pressed"]
