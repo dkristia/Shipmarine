@@ -13,4 +13,7 @@ shape = SubResource("RectangleShape2D_wgdsr")
 
 [node name="MainSprite" type="Sprite2D" parent="."]
 
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+rect = Rect2(0, 0, 100, 100)
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
