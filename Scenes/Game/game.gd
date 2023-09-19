@@ -42,20 +42,19 @@ func _process(delta):
 		speed = 0
 
 func _on_regular_enemy_timer_timeout():
-		if !isDead:
-			var rand_enemy:int = randi() % enemies.size()
-			var enemy = enemies[rand_enemy].instantiate()
-			if randf() < 0.5:
-				enemy.get_node("MainSprite").flip_h = true
-			add_child(enemy)
-			regEnemTimer.wait_time = rng.randf_range(3, 15)
+	_spawn_enemy(enemies, regEnemTimer, 10, 20)
 
 
 func _on_sky_enemy_timer_timeout():
-		if !isDead:
-			var rand_enemy:int = randi() % skyenemies.size()
-			var enemy = skyenemies[rand_enemy].instantiate()
+	_spawn_enemy(skyenemies, skyEnemTimer, 5, 10)
+
+
+func _spawn_enemy(enemylist: Array, timer: Timer, r1: int, r2: int):
+	if !isDead:
+			var rand_enemy:int = randi() % enemylist.size()
+			var enemy = enemylist[rand_enemy].instantiate()
 			if randf() < 0.5:
 				enemy.get_node("MainSprite").flip_h = true
 			add_child(enemy)
-			skyEnemTimer.wait_time = rng.randf_range(3, 10)
+			var waitTime = rng.randf_range(r1, r2)
+			timer.wait_time = r1/1.5 if waitTime/speed <= r1/1.5 else waitTime/speed

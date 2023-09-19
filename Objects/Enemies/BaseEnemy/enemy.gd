@@ -4,6 +4,7 @@ extends Area2D
 @onready var speed = $"/root/Game".speed
 @onready var isplayerdead = $"/root/Game".isDead
 @onready var explosion = $"/root/Game/Ship/Explosion"
+@export var explosive = true
 @onready var mainSprite = $MainSprite
 var _explosion = preload("res://Sprites/Ship/explosion.png")
 var gameOverscene = preload("res://Scenes/GameOver/game_over.tscn")
@@ -34,7 +35,7 @@ func _process(delta):
 			warningsprite.queue_free()
 	speed = $"/root/Game".speed
 	position.x -= delta*speed*100
-	if position.x <= -1000:
+	if position.x <= -1000 and !is_in_group("exploded") :
 		queue_free()
 	if $MainSprite.flip_h:
 		position.x += speed*delta*movespeed
@@ -43,7 +44,7 @@ func _process(delta):
 
 
 func _on_body_entered(body):
-	if body.is_in_group("player_character"):
+	if body.is_in_group("player_character") and !is_in_group("exploded"):
 		$"/root/Game/AudioStreamPlayer".stop()
 		$"/root/Game".isDead = true
 		explosion.play()
@@ -53,5 +54,15 @@ func _on_body_entered(body):
 		
 func delete_item(item, when):
 	await get_tree().create_timer(when).timeout
-	item.queue_free()
+	if item != null:
+		item.queue_free()
 	
+func _on_area_entered(area):
+	if area.explosive:
+		area.find_child("MainSprite").set_texture(_explosion)
+		area.add_to_group("exploded")
+		delete_item(area, 1)
+	if explosive:
+		$MainSprite.set_texture(_explosion)
+		add_to_group("exploded")
+		delete_item(self, 1)
