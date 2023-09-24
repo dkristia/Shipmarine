@@ -1,0 +1,75 @@
+[gd_scene load_steps=7 format=3 uid="uid://b4nhshp4pakt6"]
+
+[ext_resource type="Script" path="res://Scenes/Game/Paused/paused.gd" id="1_u86i0"]
+[ext_resource type="Shortcut" uid="uid://cq0qrt6m2ayr5" path="res://Scenes/accept.tres" id="2_emp0f"]
+[ext_resource type="Texture2D" uid="uid://rnpgm1iyhtn5" path="res://Scenes/GameOver/deathscreen_playagain.png" id="3_reu12"]
+[ext_resource type="Texture2D" uid="uid://ba6vdpko4ga43" path="res://Scenes/GameOver/deathscreen_exitgame.png" id="4_ye0gj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1yweu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yyfeo"]
+
+[node name="paused" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_u86i0")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 4
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.360784, 0.360784, 0.360784, 0.337255)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_right = 1.11086
+anchor_bottom = 1.18191
+offset_top = 1000.0
+offset_right = -1563.8
+offset_bottom = -631.95
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_right = 250
+
+[node name="play" type="Button" parent="CanvasLayer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1yweu")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_1yweu")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_1yweu")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_1yweu")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1yweu")
+shortcut = ExtResource("2_emp0f")
+shortcut_feedback = false
+shortcut_in_tooltip = false
+icon = ExtResource("3_reu12")
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+
+[node name="exit" type="Button" parent="CanvasLayer/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_yyfeo")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_yyfeo")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_yyfeo")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_yyfeo")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yyfeo")
+icon = ExtResource("4_ye0gj")
+
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/MarginContainer/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/MarginContainer2/exit" to="." method="_on_exit_pressed"]
