@@ -22,4 +22,5 @@ position = Vector2(0, 49904)
 scale = Vector2(5, 300)
 shape = SubResource("RectangleShape2D_wgdsr")
 
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered" flags=18]

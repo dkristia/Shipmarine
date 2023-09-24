@@ -42,7 +42,7 @@ wait_time = 7.0
 autostart = true
 
 [node name="SkyEnemyTimer" type="Timer" parent="."]
-wait_time = 6.0
+wait_time = 10.0
 autostart = true
 
 [connection signal="body_entered" from="WaterArea2D" to="Ship" method="_on_water_area_2d_body_entered"]
