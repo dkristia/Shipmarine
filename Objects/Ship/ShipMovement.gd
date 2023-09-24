@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+var animationState="waiting"
 const SPEED = 300.0
 const JUMP_VELOCITY = 20.0
 var WATER_UPWARD_FORCE = -900.0
@@ -41,18 +42,19 @@ func _physics_process(delta):
 		else:
 			velocity.y += (gravity - position.y * 0.1) * delta
 
-	if Input.get_action_strength("ui_accept") != 0:
+	if Input.get_action_strength("ui_accept") != 0 or Input.get_mouse_button_mask()==MOUSE_BUTTON_LEFT:
 		velocity.y += JUMP_VELOCITY
-	
-	if Input.is_action_just_pressed("ui_accept"):
-		animate("startup", "activated")
 		
-	if Input.is_action_just_released("ui_accept"):
+	if Input.is_action_just_pressed("ui_accept") or (Input.get_mouse_button_mask()==MOUSE_BUTTON_LEFT && animationState=="waiting"):
+		animate("startup", "activated")
+		animationState="inProgress"
+		
+	if Input.is_action_just_released("ui_accept") or (Input.get_mouse_button_mask()!=MOUSE_BUTTON_LEFT && animationState=="inProgress"):
 		animate("startup-reversed", "default")
+		animationState="waiting"
 	
-	if (-20 < position.y and position.y < 20) and (-10 < velocity.y and velocity.y < 10):
+	if (-20 <= position.y and position.y < 20) and (-10 < velocity.y and velocity.y < 10):
 		velocity.y = 0
-	
 	move_and_slide()
 
 func _on_water_area_2d_body_entered(body):
@@ -65,6 +67,6 @@ func _on_water_area_2d_body_exited(body):
 		inWater = false
 		
 func animate(anim1: String, anim2: String):
-		_animated_sprite.play(anim1)
-		await _animated_sprite.animation_finished
-		_animated_sprite.play(anim2)
+	_animated_sprite.play(anim1)
+	await _animated_sprite.animation_finished
+	_animated_sprite.play(anim2)
