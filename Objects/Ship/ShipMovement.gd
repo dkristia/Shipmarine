@@ -53,7 +53,7 @@ func _physics_process(delta):
 		animate("startup-reversed", "default")
 		animationState="waiting"
 	
-	if (-20 <= position.y and position.y < 20) and (-10 < velocity.y and velocity.y < 10):
+	if (-20 < position.y and position.y < 20) and (-10 < velocity.y and velocity.y < 10):
 		velocity.y = 0
 	move_and_slide()
 
