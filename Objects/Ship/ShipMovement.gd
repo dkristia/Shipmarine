@@ -19,6 +19,9 @@ func _physics_process(delta):
 		_animated_sprite.play("explosion")
 		_depth_text.visible = false
 		return
+	if $"/root/Game".isPaused:
+		return
+		
 	if position.y >= 500000:
 		get_tree().change_scene_to_file("res://Scenes/GameOver/game_over.tscn")
 	
@@ -42,16 +45,15 @@ func _physics_process(delta):
 		else:
 			velocity.y += (gravity - position.y * 0.1) * delta
 
-	if Input.get_action_strength("ui_accept") != 0 or Input.get_mouse_button_mask()==MOUSE_BUTTON_LEFT:
-		velocity.y += JUMP_VELOCITY
-		
-	if Input.is_action_just_pressed("ui_accept") or (Input.get_mouse_button_mask()==MOUSE_BUTTON_LEFT && animationState=="waiting"):
+
+	velocity.y += JUMP_VELOCITY * max(Input.get_action_strength("jump"), Input.get_action_strength("jump_stick"))
+
+
+	if Input.is_action_just_pressed("jump") or Input.is_action_just_pressed("jump_stick"):
 		animate("startup", "activated")
-		animationState="inProgress"
 		
-	if Input.is_action_just_released("ui_accept") or (Input.get_mouse_button_mask()!=MOUSE_BUTTON_LEFT && animationState=="inProgress"):
+	if Input.is_action_just_released("jump") or Input.is_action_just_released("jump_stick"):
 		animate("startup-reversed", "default")
-		animationState="waiting"
 	
 	if (-20 < position.y and position.y < 20) and (-10 < velocity.y and velocity.y < 10):
 		velocity.y = 0

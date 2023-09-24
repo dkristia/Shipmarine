@@ -113,13 +113,14 @@ script = ExtResource("1_o71jj")
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(500, 0)
 zoom = Vector2(1.5, 1.5)
-limit_smoothed = true
 position_smoothing_enabled = true
+position_smoothing_speed = 10.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -20.8333)
 scale = Vector2(1.18939, 1.18939)
 sprite_frames = SubResource("SpriteFrames_hrgc0")
+animation = &"activated"
 autoplay = "default"
 
 [node name="Explosion" type="AudioStreamPlayer" parent="."]
