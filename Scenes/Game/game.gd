@@ -57,7 +57,7 @@ func _on_regular_enemy_timer_timeout():
 			if randf() < 0.5:
 				enemy.get_node("MainSprite").flip_h = true
 			add_child(enemy)
-			regEnemTimer.wait_time = rng.randf_range(3, 15)
+			regEnemTimer.wait_time = rng.randf_range(3, 10)
 
 
 func _on_sky_enemy_timer_timeout():
@@ -67,4 +67,4 @@ func _on_sky_enemy_timer_timeout():
 			if randf() < 0.5:
 				enemy.get_node("MainSprite").flip_h = true
 			add_child(enemy)
-			skyEnemTimer.wait_time = rng.randf_range(3, 15)
+			skyEnemTimer.wait_time = rng.randf_range(3, 10)
