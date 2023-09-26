@@ -66,9 +66,9 @@ func _process(delta):
 		_score.text = str(int(score)) + "m"
 		
 		if(Input.get_action_strength("boost")!=0 and gamespeed+5>speed and vars.boostEnabled):
-			speed +=0.3
+			speed +=0.3*44*delta
 		elif(Input.get_action_strength("boost")==0 and gamespeed<speed):
-			speed -= 0.1
+			speed -= 0.1*44*delta
 	
 		if (vars.endless == false) and (score >= winScore):
 			get_tree().change_scene_to_file("res://Scenes/Victory/victory.tscn")

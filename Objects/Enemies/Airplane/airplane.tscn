@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bpb8svh1f8s1m" path="res://Sprites/Enemies/airplane.png" id="2_tscdt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wgdsr"]
-size = Vector2(21.6551, 20)
+size = Vector2(22.4153, 6.6353)
 
 [node name="Airplane" type="Area2D" groups=["enemy"]]
 z_index = -2
@@ -12,7 +12,7 @@ position = Vector2(0, 105)
 script = ExtResource("1_inob7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -105.08)
+position = Vector2(-5.64172, -99.5)
 scale = Vector2(14.8433, 7.08333)
 shape = SubResource("RectangleShape2D_wgdsr")
 
