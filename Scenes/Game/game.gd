@@ -65,14 +65,14 @@ func _process(delta):
 		
 		_score.text = str(int(score)) + "m"
 		
-		if(Input.get_action_strength("boost")!=0 and gamespeed+5>speed):
+		if(Input.get_action_strength("boost")!=0 and gamespeed+5>speed and vars.boostEnabled):
 			speed +=0.3
 		elif(Input.get_action_strength("boost")==0 and gamespeed<speed):
 			speed -= 0.1
-			
+	
 		if (vars.endless == false) and (score >= winScore):
 			get_tree().change_scene_to_file("res://Scenes/Victory/victory.tscn")
-		
+	
 
 func _on_regular_enemy_timer_timeout():
 	_spawn_enemy(enemies, regEnemTimer, 10, 20)
