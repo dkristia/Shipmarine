@@ -24,6 +24,7 @@ var score = 0
 
 var gamespeed = 1
 
+var countdown_multiplier = 2
 
 
 func _ready():
@@ -49,10 +50,10 @@ func _process(delta):
 		else:
 			isPaused = true
 			pauseScreen.get_node("CanvasLayer").visible = true
-	
+		
 	if isDead or isPaused:
 		speed = 0
-		for timer in timers:
+		for timer in timers:   
 			timer.paused = true
 	else:
 		for timer in timers:
@@ -61,14 +62,17 @@ func _process(delta):
 		score += speed * delta
 	
 		gamespeed += delta*0.07
-		speed = gamespeed + 5 * Input.get_action_strength("boost")
-
 		
 		_score.text = str(int(score)) + "m"
 		
+		if(Input.get_action_strength("boost")!=0 and gamespeed+5>speed):
+			speed +=0.3
+		elif(Input.get_action_strength("boost")==0 and gamespeed<speed):
+			speed -= 0.1
+			
 		if (vars.endless == false) and (score >= winScore):
 			get_tree().change_scene_to_file("res://Scenes/Victory/victory.tscn")
-
+		
 
 func _on_regular_enemy_timer_timeout():
 	_spawn_enemy(enemies, regEnemTimer, 10, 20)
