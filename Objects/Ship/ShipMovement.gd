@@ -48,6 +48,9 @@ func _physics_process(delta):
 
 	velocity.y += JUMP_VELOCITY * max(Input.get_action_strength("jump"), Input.get_action_strength("jump_stick"))
 
+	if Input.is_action_just_pressed("boost"):
+		animate("boostStart","boostStop")
+
 
 	if Input.is_action_just_pressed("jump") or Input.is_action_just_pressed("jump_stick"):
 		animate("startup", "activated")
