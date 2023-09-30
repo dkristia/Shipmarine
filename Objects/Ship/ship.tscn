@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://d3yqpj1afsgti"]
+[gd_scene load_steps=30 format=3 uid="uid://d3yqpj1afsgti"]
 
 [ext_resource type="Script" path="res://Objects/Ship/ShipMovement.gd" id="1_o71jj"]
 [ext_resource type="Texture2D" uid="uid://dh4d4yno58p4v" path="res://Sprites/Ship/animation2/ship_activated_new_1.png" id="2_heyfv"]
@@ -9,13 +9,24 @@
 [ext_resource type="Texture2D" uid="uid://d0s21ua45xlwx" path="res://Sprites/Ship/animation2/ship_activated_new_6.png" id="7_b2klj"]
 [ext_resource type="Texture2D" uid="uid://b6ckejqntvfvn" path="res://Sprites/Ship/animation2/ship_activated_new_7.png" id="8_ufo8g"]
 [ext_resource type="Texture2D" uid="uid://dq0n8op21vla6" path="res://Sprites/Ship/ship-standard.png" id="9_qd5as"]
+[ext_resource type="Texture2D" uid="uid://dl48hwpwx0bhk" path="res://Sprites/Ship/animation3/pixil-frame-0.png" id="9_ysub2"]
+[ext_resource type="Texture2D" uid="uid://cci8mfyikeyrq" path="res://Sprites/Ship/animation4/pixil-frame-0 (5).png" id="10_7oc2m"]
 [ext_resource type="Texture2D" uid="uid://bjinhoan7xglq" path="res://Sprites/Ship/startup/ship_engine_toggle_2.png" id="10_hjjcq"]
+[ext_resource type="Texture2D" uid="uid://bt3nbv44u84gj" path="res://Sprites/Ship/animation3/pixil-frame-0 (1).png" id="10_qv6tt"]
 [ext_resource type="Texture2D" uid="uid://koduqyrooy8t" path="res://Sprites/Ship/explosion.png" id="10_sdia8"]
+[ext_resource type="Texture2D" uid="uid://dcgttrekxqalu" path="res://Sprites/Ship/animation4/pixil-frame-0 (1).png" id="11_eur6k"]
 [ext_resource type="Texture2D" uid="uid://cdvqg30nx7ixu" path="res://Sprites/Ship/startup/ship_engine_toggle_3.png" id="11_hqoc6"]
+[ext_resource type="Texture2D" uid="uid://e0guhs8ioiyx" path="res://Sprites/Ship/animation3/pixil-frame-0 (4).png" id="11_rljcn"]
 [ext_resource type="Texture2D" uid="uid://bwso0x23my7c0" path="res://Sprites/Ship/startup/ship_engine_toggle_4.png" id="12_8h4la"]
+[ext_resource type="Texture2D" uid="uid://dogh3vp8textw" path="res://Sprites/Ship/animation3/pixil-frame-0 (5).png" id="12_atfw5"]
+[ext_resource type="Texture2D" uid="uid://cun3mkrw5xeel" path="res://Sprites/Ship/animation4/pixil-frame-0 (7).png" id="12_yf34c"]
 [ext_resource type="Texture2D" uid="uid://ccy3h6ludmoe4" path="res://Sprites/Ship/startup/ship_engine_toggle_5.png" id="13_3m6gn"]
+[ext_resource type="Texture2D" uid="uid://6h6waobydrbv" path="res://Sprites/Ship/animation3/pixil-frame-0 (6).png" id="13_4ptmg"]
+[ext_resource type="Texture2D" uid="uid://d4hgl48jgf1qp" path="res://Sprites/Ship/animation4/pixil-frame-0 (8).png" id="13_q8iqk"]
 [ext_resource type="Texture2D" uid="uid://mr2yl40thbu4" path="res://Sprites/Ship/startup/ship_engine_toggle_6.png" id="14_4xmq1"]
+[ext_resource type="Texture2D" uid="uid://c0q2s5fydgb0g" path="res://Sprites/Ship/animation4/pixil-frame-0 (4).png" id="14_g5xne"]
 [ext_resource type="AudioStream" uid="uid://cydkqhls2y5w4" path="res://Objects/Ship/explosion.wav" id="15_0ox0s"]
+[ext_resource type="Texture2D" uid="uid://n8pbroiv7dmg" path="res://Sprites/Ship/animation4/pixil-frame-0 (3).png" id="15_qe2nr"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hrgc0"]
 animations = [{
@@ -43,6 +54,69 @@ animations = [{
 }],
 "loop": true,
 "name": &"activated",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_7oc2m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_eur6k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_yf34c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_q8iqk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_g5xne")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_qe2nr")
+}],
+"loop": true,
+"name": &"boostActivated",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_ysub2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_qv6tt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_rljcn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_atfw5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_4ptmg")
+}],
+"loop": false,
+"name": &"boostStart",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_4ptmg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_atfw5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_rljcn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_qv6tt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ysub2")
+}],
+"loop": false,
+"name": &"boostStop",
 "speed": 12.0
 }, {
 "frames": [{
@@ -119,7 +193,7 @@ position_smoothing_enabled = true
 position = Vector2(0, -20.8333)
 scale = Vector2(1.18939, 1.18939)
 sprite_frames = SubResource("SpriteFrames_hrgc0")
-animation = &"activated"
+animation = &"boostStop"
 autoplay = "default"
 
 [node name="Explosion" type="AudioStreamPlayer" parent="."]

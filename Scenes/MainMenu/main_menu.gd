@@ -5,10 +5,12 @@ var credits = preload("res://Scenes/Credits/credits.tscn")
 @onready var vars = get_node("/root/first")
 
 @onready var endlessLabel = $CanvasLayer/Settings/EndlessLabel
+@onready var boostLabel = $CanvasLayer/Settings/BoostLabel
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	endlessLabel.text = str(vars.endless)
+	boostLabel.text = str(vars.boostEnabled)
 	pass
 
 
@@ -28,6 +30,8 @@ func _on_credits_pressed():
 func _on_exit_pressed():
 	get_tree().quit()
 
+func _on_boost_pressed():
+	vars.boostEnabled = !vars.boostEnabled
 
 func _on_endless_pressed():
 	vars.endless = !vars.endless

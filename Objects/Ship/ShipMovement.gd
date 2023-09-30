@@ -9,6 +9,7 @@ const WATER_SURFACE_HEIGHT = 0.0
 @onready var _background = $"../ColorBackground/SkyColor"
 @onready var _depth_text = $"../GUI/MarginContainer/HBoxContainer/Depth"
 @onready var _depth_meter = $"../GUI/MarginContainer/HBoxContainer/Depth/DepthMeter"
+@onready var vars = get_node("/root/first")
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var inWater = false
@@ -37,6 +38,7 @@ func _physics_process(delta):
 		_background.color.a = (10000 - abs(position.y)*2) * 0.0001
 		
 	WATER_UPWARD_FORCE = position.y * -2 - 500
+	
 	if inWater:
 		velocity.y += WATER_UPWARD_FORCE * delta
 	else:
@@ -47,11 +49,15 @@ func _physics_process(delta):
 
 
 	velocity.y += JUMP_VELOCITY * max(Input.get_action_strength("jump"), Input.get_action_strength("jump_stick"))
-	
-	if Input.is_action_pressed("boost"):
+
+	if(vars.boostEnabled): 
 		$Camera2D.position.x = -100
-	else:
-		$Camera2D.position.x = 0
+		if Input.is_action_just_pressed("boost"):
+			animate("boostStart","boostActivated")
+
+		if Input.is_action_just_released("boost"): 
+			animate("boostStop", "default")
+			$Camera2D.position.x = 0
 
 	if Input.is_action_just_pressed("jump") or Input.is_action_just_pressed("jump_stick"):
 		animate("startup", "activated")
