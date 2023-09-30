@@ -47,7 +47,11 @@ func _physics_process(delta):
 
 
 	velocity.y += JUMP_VELOCITY * max(Input.get_action_strength("jump"), Input.get_action_strength("jump_stick"))
-
+	
+	if Input.is_action_pressed("boost"):
+		$Camera2D.position.x = -100
+	else:
+		$Camera2D.position.x = 0
 
 	if Input.is_action_just_pressed("jump") or Input.is_action_just_pressed("jump_stick"):
 		animate("startup", "activated")

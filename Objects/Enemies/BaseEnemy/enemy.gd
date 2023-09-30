@@ -9,7 +9,7 @@ extends Area2D
 var _explosion = preload("res://Sprites/Ship/explosion.png")
 var _warning = preload("res://warning.png")
 
-var movespeed = 10
+var movespeed = 20
 
 
 func _ready():
